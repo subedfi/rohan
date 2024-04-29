@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohan Shopping Center</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #8B0000;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .product {
+            width: 300px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #fff;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+        }
+
+        .product h2 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .product p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .buy-btn {
+            background-color: #333;
+            color: #fff;
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .buy-btn:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #006400;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+
+        }
+        a{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rohan Shopping Center</h1>
+        <img src="images/ank.gif">
+    </header>
+    <main id="product-list">
+        <!-- Product items will be dynamically added here using JavaScript -->
+
+    </main>
+
+    <footer>
+        <a href="#login">Login</a> | <a href="#user-info">User Information</a>
+        © copyright 2024|roshan|pokhara-Nepal|
+
+    </footer>
+
+    <script>
+        // Sample product data
+        const products = [
+            { name: "Drone mavic air", price: 100, image: "images/drone.jpg", description: "drone has good qality with high resolution Drones are small or medium-sized unmanned aerial vehicles (UAVs). They're unique in that they can drive remotely and autonomously, and they're capable of maintaining a controlled, sustained level of flight. The drone system combines robotics with aeronautics." },
+            { name: "camera", price: 120, image: "images/camera.jpg", description: "it is the expensive camera with high quality feature A camera is an instrument used to capture and store images and videos, either digitally via an electronic image sensor, or chemically via a light-sensitive material such as photographic film." },
+            { name: "copy A4", price: 25, image: "images/copy.jpg", description: "this copy has good quality" },
+            { name: "iphone 13 pro max", price: 500, image: "images/iphone.jpg", description: " iphone 13 have good quality feature ,camera the iPhone 13's brighter display, longer battery life and powerful cameras make it the best iPhone for those on a budget. We wish it had faster charging and the" },
+            { name: "cc tv camera", price: 2, image: "images/cc.jpg", description: "CCTV (closed-circuit television) is a TV system in which signals are not publicly distributed but are monitored, primarily for surveillance and security purposes. CCTV relies on strategic placement of cameras and private observation of the camera's input on monitors." },
+            { name: "laptop", price: 50, image: "images/laptop.jpg", description: " laptop, sometimes called a notebook computer by manufacturers, is a battery- or AC-powered personal computer (PC) smaller than a briefcase. A laptop can be easily transported and used in temporary spaces such as on airplanes, in libraries, temporary offices and at meetings." },
+            { name: " off ride cycle", price: 4, image: "images/bike.jpg", description: "two-wheeled steerable machine that is pedaled by the rider's feet. On a standard bicycle the wheels are mounted in-line in a metal frame, with the front wheel held in a rotatable fork. The rider sits on a saddle and steers by leaning and turning handlebars that are attached to the fork." },
+            { name: "clothes", price: 0.7, image: "images/cloth.jpg", description: "all clothe are good with soecial offer they are availeble" },
+            
+        ];
+
+        // Function to display products
+        function displayProducts() {
+            const productList = document.getElementById("product-list");
+
+            products.forEach(product => {
+                const productItem = document.createElement("div");
+                productItem.classList.add("product");
+
+                productItem.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h2>${product.name}</h2>
+                    <p>$${product.price}</p>
+                    <p>${product.description}</p>
+                    <button class="buy-btn" onclick="buyNow('${product.name}', ${product.price})">Buy Now</button>
+                `;
+
+                productList.appendChild(productItem);
+            });
+        }
+
+        // Function to handle buy now button
+        function buyNow(productName, price) {
+            alert(`Clicked Buy Now for NPR.${productName}. Price: $${price}`);
+            // Add further logic for buy now functionality
+        }
+
+        // Call function to display products
+        displayProducts();
+    </script>
+</body>
+</html>
